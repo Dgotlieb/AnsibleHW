@@ -1,8 +1,10 @@
 ---
-- name: install zip
-  package:
-    name: "{{ item }}"
-    state: present
-  loop:
-    - zip
-    - vim
+- hosts: all
+  become: yes
+  tasks: 
+  - name: Install packages
+    apt:
+      name:
+      - vim
+      - zip
+      state: latest
